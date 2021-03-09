@@ -122,7 +122,8 @@
                                 app:ccp_hintExampleNumber="true"
                                 app:ccp_rememberLastSelection="true"
                                 app:ccpDialog_initialScrollToSelection="true"
-                                app:ccpDialog_selectedTextColor="@color/colorAccent"/>
+                                app:ccpDialog_selectedTextColor="@color/colorAccent"
+                                app:ccpDialog_selectedBackgroundColor="@color/shadow_1"/>
 
                             <EditText
                                 android:id="@+id/et_phone"

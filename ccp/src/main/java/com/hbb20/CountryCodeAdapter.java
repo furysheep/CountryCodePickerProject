@@ -250,10 +250,14 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
         public void setCountry(CCPCountry ccpCountry, boolean active) {
             if (ccpCountry != null) {
+                relativeLayout_main.setBackgroundColor(0);
                 if (active) {
                     if (codePicker.getDialogSelectedTextColor() != 0) {
                         textView_name.setTextColor(codePicker.getDialogSelectedTextColor());
                         textView_code.setTextColor(codePicker.getDialogSelectedTextColor());
+                    }
+                    if (codePicker.getDialogSelectedBackgroundColor() != 0) {
+                        relativeLayout_main.setBackgroundColor(codePicker.getDialogSelectedBackgroundColor());
                     }
                 } else if (codePicker.getDialogTextColor() != 0) {
                     textView_name.setTextColor(codePicker.getDialogTextColor());
