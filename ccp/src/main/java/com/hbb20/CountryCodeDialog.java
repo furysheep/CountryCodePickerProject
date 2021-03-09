@@ -253,6 +253,7 @@ class CountryCodeDialog {
                 }
                 for (int i = 0; i < masterCountries.size(); i++) {
                     if (masterCountries.get(i).nameCode.equalsIgnoreCase(countryNameCode)) {
+                        cca.selectedCountryIndex = i + preferredCountriesOffset;
                         recyclerView_countryDialog.scrollToPosition(i + preferredCountriesOffset);
                         break;
                     }

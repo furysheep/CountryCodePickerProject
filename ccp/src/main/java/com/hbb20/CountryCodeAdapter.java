@@ -36,6 +36,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     RelativeLayout rlQueryHolder;
     ImageView imgClearQuery;
     int preferredCountriesCount = 0;
+    int selectedCountryIndex = -1;
 
     CountryCodeAdapter(Context context, List<CCPCountry> countries, CountryCodePicker codePicker, RelativeLayout rlQueryHolder, final EditText editText_search, TextView textView_noResult, Dialog dialog, ImageView imgClearQuery) {
         this.context = context;
@@ -171,7 +172,8 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
     @Override
     public void onBindViewHolder(CountryCodeViewHolder countryCodeViewHolder, final int i) {
-        countryCodeViewHolder.setCountry(filteredCountries.get(i));
+        countryCodeViewHolder.setCountry(filteredCountries.get(i), i == selectedCountryIndex);
+
         if (filteredCountries.size() > i && filteredCountries.get(i) != null) {
             countryCodeViewHolder.getMainView().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -246,8 +248,17 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             }
         }
 
-        public void setCountry(CCPCountry ccpCountry) {
+        public void setCountry(CCPCountry ccpCountry, boolean active) {
             if (ccpCountry != null) {
+                if (active) {
+                    if (codePicker.getDialogSelectedTextColor() != 0) {
+                        textView_name.setTextColor(codePicker.getDialogSelectedTextColor());
+                        textView_code.setTextColor(codePicker.getDialogSelectedTextColor());
+                    }
+                } else if (codePicker.getDialogTextColor() != 0) {
+                    textView_name.setTextColor(codePicker.getDialogTextColor());
+                    textView_code.setTextColor(codePicker.getDialogTextColor());
+                }
                 divider.setVisibility(View.GONE);
                 textView_name.setVisibility(View.VISIBLE);
                 textView_code.setVisibility(View.VISIBLE);

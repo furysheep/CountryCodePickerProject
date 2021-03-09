@@ -129,7 +129,7 @@ public class CountryCodePicker extends RelativeLayout {
     private DialogEventsListener dialogEventsListener;
     private CustomDialogTextProvider customDialogTextProvider;
     private int fastScrollerHandleColor = 0;
-    private int dialogBackgroundResId, dialogBackgroundColor, dialogTextColor, dialogSearchEditTextTintColor;
+    private int dialogBackgroundResId, dialogBackgroundColor, dialogTextColor, dialogSelectedTextColor, dialogSearchEditTextTintColor;
     private int fastScrollerBubbleTextAppearance = 0;
     private float dialogCornerRadius;
     private CCPCountryGroup currentCountryGroup;
@@ -451,6 +451,7 @@ public class CountryCodePicker extends RelativeLayout {
             setDialogBackgroundColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_backgroundColor, 0));
             setDialogBackground(a.getResourceId(R.styleable.CountryCodePicker_ccpDialog_background, 0));
             setDialogTextColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_textColor, 0));
+            setDialogSelectedTextColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_selectedTextColor, 0));
             setDialogSearchEditTextTintColor(a.getColor(R.styleable.CountryCodePicker_ccpDialog_searchEditTextTint, 0));
             setDialogCornerRaius(a.getDimension(R.styleable.CountryCodePicker_ccpDialog_cornerRadius, 0));
 
@@ -1257,6 +1258,10 @@ public class CountryCodePicker extends RelativeLayout {
         return dialogTextColor;
     }
 
+    int getDialogSelectedTextColor() {
+        return dialogSelectedTextColor;
+    }
+
     /**
      * This color will be applied to
      * Title of dialog
@@ -1269,6 +1274,10 @@ public class CountryCodePicker extends RelativeLayout {
      */
     public void setDialogTextColor(int dialogTextColor) {
         this.dialogTextColor = dialogTextColor;
+    }
+
+    public void setDialogSelectedTextColor(int dialogTextColor) {
+        this.dialogSelectedTextColor = dialogTextColor;
     }
 
     int getDialogTypeFaceStyle() {
